@@ -1,17 +1,41 @@
+import 'package:introducao_dart/aula2/cliente.dart';
+import 'package:introducao_dart/aula2/livro.dart';
+import 'package:introducao_dart/aula2/pedido.dart';
 import 'package:introducao_dart/aula2/produto.dart';
+import 'package:introducao_dart/aula2/sistema_loja.dart';
 import 'package:introducao_dart/introducao_dart.dart' as introducao_dart;
 
 void main(List<String> arguments) {
-  Produto produto = Produto(nome: "ane caroline", id: 2, corParametro: 'verde');
-  Eletronico eletronicoObjeto = Eletronico(
-    marca: 'xpto',
-    garantiaMeses: 1,
-    idParametro: 1,
-    nomeParametro: 'teste',
-    corParametro: "cinza",
+  SistemaLoja sistemaObjeto = SistemaLoja(pedidos: []);
+  Cliente clienteObjeto = Cliente(
+    nome: "Ane Caroline",
+    email: "email@gmail.com",
   );
 
-  eletronicoObjeto.detalhesProduto();
+  Livro livro = Livro(autor: "C.S. Lewis", id: 1, nome: "Crônicas de Nárnia", preco: 100.0);
+
+  Produto produtoObjeto = Produto(id: 1, nome: "Café", preco: 18.0);
+  Produto produtoObjeto2 = Produto(id: 2, nome: "Açucar", preco: 5.0);
+
+  List<Produto> carrinho = [];
+  carrinho.add(produtoObjeto);
+  carrinho.add(produtoObjeto2);
+  carrinho.add(livro);
+
+  Pedido pedidoObjeto = Pedido(cliente: clienteObjeto, items: carrinho);
+
+  sistemaObjeto.adicionarPedido(pedidoObjeto);
+  sistemaObjeto.listaPedidos();
+  // Produto produto = Produto(nome: "ane caroline", id: 2, corParametro: 'verde');
+  // Eletronico eletronicoObjeto = Eletronico(
+  //   marca: 'xpto',
+  //   garantiaMeses: 1,
+  //   idParametro: 1,
+  //   nomeParametro: 'teste',
+  //   corParametro: "cinza",
+  // );
+
+  // eletronicoObjeto.detalhesProduto();
   //Trabalhando com maps
   // Map<String, dynamic> estruturaPessoa = {
   //   "nome": "fulano",
