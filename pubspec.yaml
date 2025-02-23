@@ -10,8 +10,10 @@ environment:
 dependencies:
   intl: ^0.20.2
   my_simple_package:
-    path: ./packages/my_simple_package
-
+    git: 
+      url: https://github.com/CarolBastos/aula1_dart
+      path: ./packages/my_simple_package
+      ref: master
 
 dev_dependencies:
   lints: ^5.0.0

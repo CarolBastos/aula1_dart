@@ -189,8 +189,10 @@ packages:
     dependency: "direct main"
     description:
       path: "packages/my_simple_package"
-      relative: true
-    source: path
+      ref: master
+      resolved-ref: a78a4b228bba92d4ce33bd85a6779d88c15b1d34
+      url: "https://github.com/CarolBastos/aula1_dart"
+    source: git
     version: "1.0.0"
   node_preamble:
     dependency: transitive
