@@ -5,27 +5,69 @@ import 'package:introducao_dart/aula2/produto.dart';
 import 'package:introducao_dart/aula2/sistema_loja.dart';
 import 'package:introducao_dart/introducao_dart.dart' as introducao_dart;
 
-void main(List<String> arguments) {
-  SistemaLoja sistemaObjeto = SistemaLoja(pedidos: []);
-  Cliente clienteObjeto = Cliente(
-    nome: "Ane Caroline",
-    email: "email@gmail.com",
-  );
 
-  Livro livro = Livro(autor: "C.S. Lewis", id: 1, nome: "Crônicas de Nárnia", preco: 100.0);
+// Future<String> fetchData() {
+//   return Future.error({"mensagem": "erro na requisição"});
+//   // return Future.delayed(Duration(seconds: 2),() {
+//   //   return "Dados carregados";
+//   // });
+// }
 
-  Produto produtoObjeto = Produto(id: 1, nome: "Café", preco: 18.0);
-  Produto produtoObjeto2 = Produto(id: 2, nome: "Açucar", preco: 5.0);
+Stream<int> generationNumbers() async* {
+  for (var i = 0; i < 5; i++) {
+    await Future.delayed(Duration(seconds: 1));
+    //retorna valores sob demanda
+    yield i;
+  }
+}
 
-  List<Produto> carrinho = [];
-  carrinho.add(produtoObjeto);
-  carrinho.add(produtoObjeto2);
-  carrinho.add(livro);
+void main(List<String> arguments) async {
 
-  Pedido pedidoObjeto = Pedido(cliente: clienteObjeto, items: carrinho);
+  print("inicializando geração de numeros...");
 
-  sistemaObjeto.adicionarPedido(pedidoObjeto);
-  sistemaObjeto.listaPedidos();
+  await for (int number in generationNumbers()) {
+    print("numero gerado: $number");
+  }
+
+  // try {  
+  //   //função sincrona
+  //   String data = await fetchData();
+  //   print(data);
+  // } catch (e) {
+  //   print("error $e");
+  // }
+
+  //função assincrona
+  // fetchData()
+  // .then((valorRetornado) {
+  //   print(valorRetornado);
+  // })
+  // .catchError((error) {
+  //   print("error $error");
+  // });
+
+  print("final da requisição");
+
+  // SistemaLoja sistemaObjeto = SistemaLoja(pedidos: []);
+  // Cliente clienteObjeto = Cliente(
+  //   nome: "Ane Caroline",
+  //   email: "email@gmail.com",
+  // );
+
+  // Livro livro = Livro(autor: "C.S. Lewis", id: 1, nome: "Crônicas de Nárnia", preco: 100.0);
+
+  // Produto produtoObjeto = Produto(id: 1, nome: "Café", preco: 18.0);
+  // Produto produtoObjeto2 = Produto(id: 2, nome: "Açucar", preco: 5.0);
+
+  // List<Produto> carrinho = [];
+  // carrinho.add(produtoObjeto);
+  // carrinho.add(produtoObjeto2);
+  // carrinho.add(livro);
+
+  // Pedido pedidoObjeto = Pedido(cliente: clienteObjeto, items: carrinho);
+
+  // sistemaObjeto.adicionarPedido(pedidoObjeto);
+  // sistemaObjeto.listaPedidos();
   // Produto produto = Produto(nome: "ane caroline", id: 2, corParametro: 'verde');
   // Eletronico eletronicoObjeto = Eletronico(
   //   marca: 'xpto',
