@@ -22,6 +22,12 @@ Stream<int> generationNumbers() async* {
 }
 
 void main(List<String> arguments) async {
+   // var now = DateTime.now();
+  // var formatter = DateFormat("dd/MM/yyyy");
+  // String dateFormat = formatter.format(now);
+
+  // print("Data formatada: $dateFormat");
+  
 
   print("inicializando geração de numeros...");
 
