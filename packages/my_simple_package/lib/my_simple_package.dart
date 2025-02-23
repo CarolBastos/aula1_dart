@@ -8,3 +8,4 @@ export 'src/create.dart';
 export 'src/delete.dart';
 export 'src/update.dart';
 export 'src/models/create_post_model.dart';
+export 'src/interceptor/client_interceptor.dart';
